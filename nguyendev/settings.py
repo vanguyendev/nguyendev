@@ -26,9 +26,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-fv$ypkk-v9$0pg^tev$nyckr6%o$6@pf%)$sd#0(b*%38+fgfn'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = []
+=======
+ALLOWED_HOSTS = ["nguyendev-django.herokuapp.com"]
+>>>>>>> 78bf99fa927a28afe823651062334e3664b52208
 
 
 # Application definition
@@ -124,8 +128,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+<<<<<<< HEAD
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 
+=======
+
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+>>>>>>> 78bf99fa927a28afe823651062334e3664b52208
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'img').replace('\\', '/')
