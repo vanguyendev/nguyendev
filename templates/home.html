@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for home in home_object %}
+
+
+<header class="text-center text-white d-flex masthead" style="background-image:url({{ home.background_picture.url }});">
+        <div class="container my-auto">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h1 class="text-uppercase"><strong>{{ home.home_heading }}</strong></h1>
+                    <hr>
+                </div>
+            </div>
+            <div class="col-lg-8 mx-auto">
+                <p class="text-faded mb-5">{{ home.home_description}}</p><a class="btn btn-primary btn-xl" role="button" href="#services">Find Out More</a>
+            </div>
+        </div>
+    </header>{% endfor %}
+    <section id="about" class="bg-primary">
+        {% for about in about_object %}
+        <div class="container">
+            <div class="row">
+                <div class="col offset-lg-8 text-center mx-auto">
+                    <h2 class="text-white section-heading">{{ about.about_title }}</h2>
+                    <hr class="light my-4">
+                    <p class="text-faded mb-4"><br>{{ about.about_description }}<br></p><a class="btn btn-light btn-xl" role="button" href="#services">Get Started!</a>
+                </div>
+            </div>
+        </div>{% endfor %}
+    </section>
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">At Your Service</h2>
+                    <hr class="my-4">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+         <div class="row">
+            {% for service in services_object %}
+                <div class="col-md-6 col-lg-3 text-center">
+                    <div class="mx-auto service-box mt-5"><i class="{{ service.service_icon }}" data-aos="zoom-in" data-aos-duration="200" data-aos-once="true"></i>
+                        <h3 class="mb-3">{{ service.service_title }}</h3>
+                        <p class="text-muted mb-0"><br>{{ service.service_description }}<br></p>
+                    </div>
+                </div>
+             {% endfor %}
+            </div>
+            </div>
+    </section>
+    <section id="portfolio" class="p-0">
+        <div class="container-fluid p-0">
+            <div class="row g-0 popup-gallery">
+                {% for portfolio in portfolio_object %}
+                <div class="col-sm-6 col-lg-4"><a class="portfolio-box" href="{{ portfolio.project_image.url }}"><img class="img-fluid" src="{{ portfolio.project_image.url }}">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded"><span>{{ portfolio.category }}</span></div>
+                                <div class="project-name"><span>{{ portfolio.project_name }}</span></div>
+                            </div>
+                        </div>
+                    </a></div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <section class="text-white bg-dark">
+        <div class="container text-center">
+            <h2 class="mb-4">Lorem Ipsum!</h2><a class="btn btn-light btn-xl sr-button" role="button" data-aos="zoom-in" data-aos-duration="400" data-aos-once="true" href="#">hire us now!</a>
+        </div>
+    </section>
+    <section id="contact">
+    {% for contact in contact_object %}
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 text-center mx-auto">
+                    <h2 class="section-heading">{{ contact.contact_title }}</h2>
+                    <hr class="my-4">
+                    <p class="mb-5">{{ contact.contact_description }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 text-center ms-auto"><i class="fa fa-phone fa-3x mb-3 sr-contact" data-aos="zoom-in" data-aos-duration="300" data-aos-once="true"></i>
+                    <p>{{ contact.phone_number }}</p>
+                </div>
+                <div class="col-lg-4 text-center me-auto"><i class="fa fa-envelope-o fa-3x mb-3 sr-contact" data-aos="zoom-in" data-aos-duration="300" data-aos-delay="300" data-aos-once="true"></i>
+                    <p><a href="mailto:your-email@your-domain.com">{{ contact.contact_email }}</a></p>
+                </div>
+            </div>
+        </div>{% endfor %}
+    </section>
+
+{% endblock %}
